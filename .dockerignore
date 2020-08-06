@@ -21,6 +21,4 @@ docker-compose.override.yml
 
 /public/media
 /public/sitemap
-/public/theme
 /public/thumbnail
-/artifacts

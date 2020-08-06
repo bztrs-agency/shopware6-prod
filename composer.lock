@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "50252edb52da64d71022b6a90f4c30fe",
+    "content-hash": "0a15d54ccde62d36b1664bb39330e309",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -89,6 +89,51 @@
                 "sdk"
             ],
             "time": "2020-01-24T19:11:35+00:00"
+        },
+        {
+            "name": "bztrs/store-plugin-sw6",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:bztrs-agency/store-plugin-sw6.git",
+                "reference": "c713b5d24da3e29d697a27355bc301426430d269"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://v2.packages.bztrs.eu/zipball/bztrs/store-plugin-sw6/c713b5d24da3e29d697a27355bc301426430d269.zip",
+                "reference": "c713b5d24da3e29d697a27355bc301426430d269"
+            },
+            "require": {
+                "shopware/core": "^6.1.0"
+            },
+            "conflict": {
+                "shopware/administration": "<6,>=7",
+                "shopware/storefront": "<6,>=7"
+            },
+            "type": "shopware-platform-plugin",
+            "extra": {
+                "shopware-plugin-class": "Bztrs\\Store\\BztrsStore",
+                "label": {
+                    "de-DE": "BZTRS Agency Store plugin",
+                    "en-GB": "BZTRS Agency Store plugin"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bztrs\\Store\\": "src/"
+                }
+            },
+            "notification-url": "https://v2.packages.bztrs.eu/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "BZTRS Agency B.V."
+                }
+            ],
+            "description": "BZTRS Agency Store plugin",
+            "time": "2020-06-29T06:28:39+02:00"
         },
         {
             "name": "cocur/slugify",
