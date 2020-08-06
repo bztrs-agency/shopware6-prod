@@ -4,7 +4,7 @@ sync: prerequisites
 	@echo "Syncing upstream into develop..."
 	@./bin/sync-upstream.sh
 
-release: prerequisites
+release: sync
 	@echo "Tagging release..."
 	@./bin/release.sh
 
