@@ -11,6 +11,5 @@ if [ "$APP_ENV" = "prod" ] ; then
   sudo -u www-data ln -sfn /mnt/nfs/config/jwt /www/config/jwt
   sudo -u www-data ln -sfn /mnt/nfs/files/public /www/public/public
   sudo -u www-data ln -sfn /mnt/nfs/files/private /www/public/private
-else
-    chown -R www-data:www-data /www/var/cache
 fi
+chown -R www-data:www-data /www/var/cache

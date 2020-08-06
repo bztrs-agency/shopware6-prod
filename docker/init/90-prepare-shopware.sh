@@ -1,7 +1,5 @@
 #!/usr/bin/with-contenv bash
 if [ "$APP_ENV" = "prod" ] ; then
-  rm /www/vendor/autoload.php
-  composer install --working-dir=/www --no-dev --no-ansi --no-interaction --no-plugins --no-progress --no-suggest --optimize-autoloader
   sudo -E -u www-data ./bin/console database:migrate --all --env="${APP_ENV}"
   sudo -E -u www-data ./bin/console bundle:dump --env="${APP_ENV}"
   sudo -E -u www-data ./bin/console theme:compile --env="${APP_ENV}"
