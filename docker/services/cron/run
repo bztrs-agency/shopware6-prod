@@ -1,0 +1,5 @@
+#!/usr/bin/with-contenv sh
+
+touch /etc/crontab /etc/cron.*/*
+
+exec cron -f

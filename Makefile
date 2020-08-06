@@ -2,7 +2,7 @@ COMPOSER_ARGS = "--ignore-platform-reqs --no-ansi --no-interaction --no-plugins 
 
 sync:
 	@echo "syncing upstream into develop..."
-	./bin/sync-upstream.sh
+	@./bin/sync-upstream.sh
 
 composer-repo:
 	@echo "Adding BZTRS composer repo"

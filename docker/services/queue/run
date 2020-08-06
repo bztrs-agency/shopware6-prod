@@ -1,0 +1,3 @@
+#!/usr/bin/with-contenv sh
+
+exec /www/bin/console scheduled-task:run --memory-limit=128M
