@@ -1,0 +1,11 @@
+services:
+  Redis:
+    class: Redis
+    calls:
+      - method: connect
+        arguments:
+          - '%env(REDIS_SERVICE_SERVICE_HOST)%'
+          - '%env(REDIS_SERVICE_SERVICE_PORT)%'
+  Symfony\Component\HttpFoundation\Session\Storage\Handler\RedisSessionHandler:
+    arguments:
+      - '@Redis'
