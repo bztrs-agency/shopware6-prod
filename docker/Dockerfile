@@ -11,6 +11,5 @@ ADD $DOCKER_PATH/services/nginx /etc/services.d/nginx
 ADD $DOCKER_PATH/services/php-fpm /etc/services.d/php-fpm
 ADD $DOCKER_PATH/init /etc/cont-init.d/
 ADD $DOCKER_PATH/nginx/redirects.conf /etc/nginx/conf/redirects.conf
-ADD $DOCKER_PATH/cron /tmp/crontab
 
 COPY --chown=www-data:www-data $COPY_PATH /www
