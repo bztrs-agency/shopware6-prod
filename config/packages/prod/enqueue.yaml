@@ -1,4 +1,0 @@
-enqueue:
-  default:
-    transport: "amqp://opir:%env(RMQ_PASSWORD)%@%env(RMQ_HOST)%:5672"
-    client: ~
