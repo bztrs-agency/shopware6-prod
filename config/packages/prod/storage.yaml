@@ -9,8 +9,8 @@ shopware:
         use_path_style_endpoint: true
         region: "%env(AWS_DEFAULT_REGION)%"
         credentials:
-          key: '%env(AWS_SECRET_ACCESS_KEY)%'
-          secret: '%env(AWS_ACCESS_KEY_ID)%'
+          key: '%env(AWS_S3_KEY)%'
+          secret: '%env(AWS_S3_SECRET)%'
         options:
           visibility: "private"
     public:
@@ -23,8 +23,8 @@ shopware:
         use_path_style_endpoint: true
         region: "%env(AWS_DEFAULT_REGION)%"
         credentials:
-          key: '%env(AWS_SECRET_ACCESS_KEY)%'
-          secret: '%env(AWS_ACCESS_KEY_ID)%'
+          key: '%env(AWS_S3_KEY)%'
+          secret: '%env(AWS_S3_SECRET)%'
         options:
           visibility: "public"
     theme:
@@ -37,8 +37,8 @@ shopware:
         use_path_style_endpoint: true
         region: "%env(AWS_DEFAULT_REGION)%"
         credentials:
-          key: '%env(AWS_SECRET_ACCESS_KEY)%'
-          secret: '%env(AWS_ACCESS_KEY_ID)%'
+          key: '%env(AWS_S3_KEY)%'
+          secret: '%env(AWS_S3_SECRET)%'
         options:
           visibility: "public"
     asset:
@@ -51,8 +51,8 @@ shopware:
         use_path_style_endpoint: true
         region: "%env(AWS_DEFAULT_REGION)%"
         credentials:
-          key: '%env(AWS_SECRET_ACCESS_KEY)%'
-          secret: '%env(AWS_ACCESS_KEY_ID)%'
+          key: '%env(AWS_S3_KEY)%'
+          secret: '%env(AWS_S3_SECRET)%'
         options:
           visibility: "public"
     sitemap:
@@ -65,7 +65,7 @@ shopware:
         use_path_style_endpoint: true
         region: "%env(AWS_DEFAULT_REGION)%"
         credentials:
-          key: '%env(AWS_SECRET_ACCESS_KEY)%'
-          secret: '%env(AWS_ACCESS_KEY_ID)%'
+          key: '%env(AWS_S3_KEY)%'
+          secret: '%env(AWS_S3_SECRET)%'
         options:
           visibility: "public"
