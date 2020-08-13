@@ -1,0 +1,71 @@
+shopware:
+  filesystem:
+    private:
+      type: "amazon-s3"
+      config:
+        bucket: "%env(AWS_BUCKET)%"
+        root: "documents"
+        endpoint: "%env(AWS_S3_ENDPOINT)%"
+        use_path_style_endpoint: false
+        region: "%env(AWS_DEFAULT_REGION)%"
+        credentials:
+          key: '%env(AWS_S3_KEY)%'
+          secret: '%env(AWS_S3_SECRET)%'
+        options:
+          visibility: "private"
+    public:
+      type: "amazon-s3"
+      url: '%env(CDN_URL)%public'
+      config:
+        bucket: "%env(AWS_BUCKET)%"
+        root: "public"
+        endpoint: "%env(AWS_S3_ENDPOINT)%"
+        use_path_style_endpoint: false
+        region: "%env(AWS_DEFAULT_REGION)%"
+        credentials:
+          key: '%env(AWS_S3_KEY)%'
+          secret: '%env(AWS_S3_SECRET)%'
+        options:
+          visibility: "public"
+    theme:
+      type: "amazon-s3"
+      url: '%env(CDN_URL)%theme'
+      config:
+        bucket: "%env(AWS_BUCKET)%"
+        root: "theme"
+        endpoint: "%env(AWS_S3_ENDPOINT)%"
+        use_path_style_endpoint: false
+        region: "%env(AWS_DEFAULT_REGION)%"
+        credentials:
+          key: '%env(AWS_S3_KEY)%'
+          secret: '%env(AWS_S3_SECRET)%'
+        options:
+          visibility: "public"
+    asset:
+      type: "amazon-s3"
+      url: '%env(CDN_URL)%assets'
+      config:
+        bucket: "%env(AWS_BUCKET)%"
+        root: "assets"
+        endpoint: "%env(AWS_S3_ENDPOINT)%"
+        use_path_style_endpoint: false
+        region: "%env(AWS_DEFAULT_REGION)%"
+        credentials:
+          key: '%env(AWS_S3_KEY)%'
+          secret: '%env(AWS_S3_SECRET)%'
+        options:
+          visibility: "public"
+    sitemap:
+      type: "amazon-s3"
+      url: '%env(CDN_URL)%sitemap'
+      config:
+        bucket: "%env(AWS_BUCKET)%"
+        root: "sitemap"
+        endpoint: "%env(AWS_S3_ENDPOINT)%"
+        use_path_style_endpoint: false
+        region: "%env(AWS_DEFAULT_REGION)%"
+        credentials:
+          key: '%env(AWS_S3_KEY)%'
+          secret: '%env(AWS_S3_SECRET)%'
+        options:
+          visibility: "public"

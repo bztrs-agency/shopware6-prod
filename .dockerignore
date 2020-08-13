@@ -1,6 +1,7 @@
 /var
 !/var/plugins.json
 /.*
+!.bztrs
 **/*.git
 **/node_modules
 

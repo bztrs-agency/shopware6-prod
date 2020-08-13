@@ -2,11 +2,11 @@ COMPOSER_ARGS = "--ignore-platform-reqs --no-ansi --no-interaction --no-plugins 
 
 sync: prerequisites
 	@echo "Syncing upstream into develop..."
-	@./bin/sync-upstream.sh
+	@./.bztrs/bin/sync-upstream.sh
 
 release: sync
 	@echo "Tagging release..."
-	@./bin/release.sh
+	@./.bztrs/bin/release.sh
 
 composer-repo:
 	@echo "Adding BZTRS composer repo"
@@ -18,7 +18,7 @@ composer-install: composer-repo
 
 composer-dependencies: composer-repo
 	@echo "Installing composer dependencies"
-	composer require $(shell echo $(shell cat .dependencies)) $(shell echo $(COMPOSER_ARGS))
+	composer require $(shell echo $(shell cat ./.bztrs/.dependencies)) $(shell echo $(COMPOSER_ARGS))
 
 composer-update: composer-repo
 	@echo "Updating composer dependencies"
@@ -26,5 +26,5 @@ composer-update: composer-repo
 
 prerequisites:
 	@echo "Checking script permissions..."
-	@chmod +x ./bin/release.sh
-	@chmod +x ./bin/sync-upstream.sh
+	@chmod +x ./.bztrs/bin/release.sh
+	@chmod +x ./.bztrs/bin/sync-upstream.sh

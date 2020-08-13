@@ -6,12 +6,12 @@ fi
 git fetch
 git fetch upstream
 
-git show-ref --verify --quiet refs/heads/$(cat .branch)
+git show-ref --verify --quiet refs/heads/$(cat ./.bztrs/.branch)
 if [[ $? == 0 ]]; then
-    git checkout $(cat .branch) --quiet
+    git checkout $(cat ./.bztrs/.branch) --quiet
 else
-    git checkout --track origin/$(cat .branch)
+    git checkout --track origin/$(cat ./.bztrs/.branch)
 fi
 
 git fetch --tags upstream
-git merge "upstream/$(cat .branch)"
+git merge "upstream/$(cat ./.bztrs/.branch)"
