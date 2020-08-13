@@ -7,6 +7,7 @@ if [[ "$APP_ENV" = "prod" ]] ; then
   rm -fr /www/public/recovery
   rm -r /www/custom/plugins
   chown -R www-data:www-data /mnt/nfs
+  chmod +x /www/console
   sudo -u www-data ln -sfn /mnt/nfs/custom/plugins /www/custom/plugins
   sudo -u www-data ln -sfn /mnt/nfs/config/jwt /www/config/jwt
 fi

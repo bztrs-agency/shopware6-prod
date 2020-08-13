@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+sudo -E -u www-data "$(dirname $0)/bin/console" "$@"
