@@ -1,7 +1,7 @@
 /var
 !/var/plugins.json
 /.*
-!.bztrs
+
 **/*.git
 **/node_modules
 
@@ -23,3 +23,6 @@ docker-compose.override.yml
 /public/media
 /public/sitemap
 /public/thumbnail
+
+!.bztrs
+Makefile
