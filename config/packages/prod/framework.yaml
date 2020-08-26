@@ -1,5 +1,0 @@
-framework:
-  messenger:
-    transports:
-      default: # the name for the transport used by symfony
-        dsn: "amqp://opir:%env(RMQ_PASSWORD)%@%env(RMQ_HOST)%:5672"
