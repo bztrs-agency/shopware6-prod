@@ -1,3 +1,3 @@
 #!/usr/bin/with-contenv sh
 
-exec s6-setuidgid www-data /www/bin/console messenger:consume default --memory-limit=128M --time-limit=60 --no-debug
+exec /www/bin/console messenger:consume default --memory-limit=256M --time-limit=3600 --no-debug
