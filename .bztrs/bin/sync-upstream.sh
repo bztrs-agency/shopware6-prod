@@ -5,6 +5,7 @@ if ! git config remote.upstream.url > /dev/null; then
 fi
 git fetch
 git fetch upstream
+git fetch upstream --tags
 
 git show-ref --verify --quiet refs/heads/$(cat ./.bztrs/.branch)
 if [[ $? == 0 ]]; then
