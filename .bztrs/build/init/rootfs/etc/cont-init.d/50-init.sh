@@ -5,5 +5,4 @@ if [ "$APP_ENV" = "prod" ] ; then
   /www/console bundle:dump --env="${APP_ENV}"
   /www/console theme:compile --env="${APP_ENV}"
   /www/console assets:install --env="${APP_ENV}"
-  /www/console plugin:refresh --env="${APP_ENV}"
 fi
