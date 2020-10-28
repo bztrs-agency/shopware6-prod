@@ -3,7 +3,6 @@
 
 namespace Shopware\CI\Service;
 
-
 class UpdateApiService
 {
     /**

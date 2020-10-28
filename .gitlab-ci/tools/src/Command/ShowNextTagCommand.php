@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace Shopware\CI\Command;
 
@@ -10,6 +10,31 @@ use Symfony\Component\Console\Output\OutputInterface;
 class ShowNextTagCommand extends ReleaseCommand
 {
     public static $defaultName = 'release:show-next-tag';
+
+    public static function getTags(string $repository): array
+    {
+        $output = [];
+        $returnCode = 0;
+        exec('git -C ' . escapeshellarg($repository) . ' tag --list ', $output, $returnCode);
+
+        if ($returnCode !== 0) {
+            throw new \RuntimeException('Failed to list tags');
+        }
+
+        return $output;
+    }
+
+    public static function getRootPath(string $repository): string
+    {
+        $returnCode = 0;
+        $rootDir = exec('git -C ' . escapeshellarg($repository) . ' rev-parse --show-toplevel', $output, $returnCode);
+
+        if ($returnCode !== 0) {
+            throw new \RuntimeException('Failed to list tags');
+        }
+
+        return $rootDir;
+    }
 
     protected function configure(): void
     {
@@ -45,31 +70,6 @@ class ShowNextTagCommand extends ReleaseCommand
         $output->writeln($nextTag);
 
         return 0;
-    }
-
-    public static function getTags(string $repository): array
-    {
-        $output = [];
-        $returnCode = 0;
-        exec('git -C ' . escapeshellarg($repository) . ' tag --list ', $output, $returnCode);
-
-        if ($returnCode !== 0) {
-            throw new \RuntimeException('Failed to list tags');
-        }
-
-        return $output;
-    }
-
-    public static function getRootPath(string $repository): string
-    {
-        $returnCode = 0;
-        $rootDir = exec('git -C ' . escapeshellarg($repository) .' rev-parse --show-toplevel', $output, $returnCode);
-
-        if ($returnCode !== 0) {
-            throw new \RuntimeException('Failed to list tags');
-        }
-
-        return $rootDir;
     }
 
     private function isMinorRelease(InputInterface $input): bool
