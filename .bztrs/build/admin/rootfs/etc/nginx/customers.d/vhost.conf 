@@ -1,0 +1,79 @@
+upstream php7-fpm {
+    server unix:/var/run/php-fpm.sock;
+}
+server {
+    listen [::]:80 default_server;
+    listen 80 default_server;
+    server_name _;
+
+    sendfile on;
+
+    root /www/public;
+    index index.php;
+
+    location /nginx_status {
+      access_log off;
+      return 404;
+    }
+
+    location /recovery/install {
+        index index.php;
+        try_files $uri /recovery/install/index.php$is_args$args;
+    }
+
+    location ~* (?:\.(?:bak|conf(ig)?|dist|fla|in[ci]|log|psd|sh|sql|sw[op]|tpl|yml|ini|log)|~)$ {
+        deny all;
+    }
+
+    # Deny access to root files
+    location ~ (autoload\.php|composer\.(json|lock|phar)|CONTRIBUTING\.md|eula.*\.txt|license\.txt|README\.md|UPGRADE\.md)$ {
+        return 404;
+    }
+
+    # Redirect server error pages to the static page /50x.html
+    error_page 500 502 503 504 /50x.html;
+    location = /50x.html {
+        root /var/lib/nginx/html;
+    }
+
+    location = /favicon.ico {
+        log_not_found off;
+        access_log off;
+    }
+
+    location ~ /\.(?!well-known).* {
+        deny all;
+        access_log off;
+        log_not_found off;
+    }
+
+    include conf/vhost-custom.conf;
+
+    location / {
+      try_files $uri /index.php$is_args$args;
+    }
+
+    location ~ \.php$ {
+        try_files $uri $uri/ =404;
+
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        include /etc/nginx/conf/fastcgi.conf;
+        set $path_info $fastcgi_path_info;
+
+        fastcgi_param PATH_INFO $path_info;
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        fastcgi_param DOCUMENT_ROOT $realpath_root;
+        fastcgi_param HTTPS 'on';
+
+        fastcgi_pass php7-fpm;
+
+        fastcgi_buffers 16 16k;
+        fastcgi_buffer_size 32k;
+        fastcgi_hide_header X-Powered-By;
+
+        client_max_body_size 24M;
+        client_body_buffer_size 1M;
+    }
+
+    include conf/redirects.conf;
+}
