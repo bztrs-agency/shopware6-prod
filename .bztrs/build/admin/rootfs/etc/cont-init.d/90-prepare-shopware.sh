@@ -1,5 +1,5 @@
 #!/usr/bin/with-contenv bash
-if [ "$APP_ENV" = "prod" ] ; then
+if [ "$APP_ENV" != "dev" ] ; then
   touch /www/install.lock
   /www/console bundle:dump --env="${APP_ENV}"
   /www/console theme:dump --env="${APP_ENV}"

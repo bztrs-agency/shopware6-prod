@@ -1,5 +1,5 @@
 #!/usr/bin/with-contenv bash
-if [[ "$APP_ENV" = "prod" ]] ; then
+if [[ "$APP_ENV" != "dev" ]] ; then
   mkdir -p /mnt/nfs/custom/plugins
   mkdir -p /mnt/nfs/config/jwt
   mkdir -p /mnt/nfs/files/{private,public,import}
